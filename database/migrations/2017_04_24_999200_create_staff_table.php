@@ -13,28 +13,27 @@ class CreateStaffTable extends Migration
      */
     public function up()
     {
-        Schema::create('staffs', function (Blueprint $table) {
+        Schema::create('staff', function (Blueprint $table) {
             $table->increments('id');
             $table->string('staff_salutation', 30);
             $table->string('phone')->nullable();
             $table->string('mobile')->nullable();
             $table->string('email')->nullable();
+            $table->integer('details_id')->unsigned()->index()->nullable();
+            $table->integer('departments_id')->unsigned()->index()->nullable();
+            $table->integer('positions_id')->unsigned()->index()->nullable();
             $table->timestamps();
         });
 
-        Schema::table('staffs', function($table){
-            
-            $table->integer('details_id')->unsigned()->index()->nullable();
+        Schema::table('staff', function($table){
             $table->foreign('details_id')
                 ->references('id')->on('details')
                 ->onDelete('cascade')
                 ->onUpdate('cascade');
-            $table->integer('departments_id')->unsigned()->index()->nullable();
             $table->foreign('departments_id')
                 ->references('id')->on('departments')
                 ->onDelete('cascade')
                 ->onUpdate('cascade');
-            $table->integer('positions_id')->unsigned()->index()->nullable();
             $table->foreign('positions_id')
                     ->references('id')->on('positions')
                     ->onDelete('cascade')
@@ -50,6 +49,6 @@ class CreateStaffTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('staffs');
+        Schema::dropIfExists('staff');
     }
 }

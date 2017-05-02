@@ -18,23 +18,23 @@ class CreatePositionsTable extends Migration
             $table->string('title')->default('Supervisor');
             $table->text('description')->nullable();
             $table->boolean('show')->default(1);
-            $table->integer('post_id')->unsigned()->index()->nullable();
+            $table->integer('posts_id')->unsigned()->index()->nullable();
             $table->integer('users_id')->unsigned()->index()->nullable();
             $table->timestamps();
         });
 
 
         //constrains for table comments
-        Schema::table('supervisors', function($table){
+        Schema::table('positions', function($table){
             $table->foreign('users_id')
                     ->references('id')->on('users')
                     ->onDelete('cascade')
                     ->onUpdate('cascade');
-
-            $table->foreign('post_id')
+/*
+            $table->foreign('posts_id')
                     ->references('id')->on('posts')
                     ->onDelete('cascade')
-                    ->onUpdate('cascade');
+                    ->onUpdate('cascade');*/
         });
     }
 

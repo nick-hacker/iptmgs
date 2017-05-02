@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
+use App\College;
 
 class CreateCollegesTable extends Migration
 {
@@ -29,10 +30,10 @@ class CreateCollegesTable extends Migration
         });
 
         //Adding dummy data
-        App\College::create([
-        'college_name' => 'Informatics and Virtual Education',
-        'college_acronym' => 'CIVE',
-        'institutions_id' => 1
+        College::create([
+            'college_name' => 'Informatics and Virtual Education',
+            'college_acronym' => 'CIVE',
+            'institutions_id' => 1
         ]);
 
     }

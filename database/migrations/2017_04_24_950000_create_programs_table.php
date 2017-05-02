@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
+use App\Program;
 
 class CreateProgramsTable extends Migration
 {
@@ -30,18 +31,22 @@ class CreateProgramsTable extends Migration
             $table->foreign('departments_id')->references('id')->on('departments')->onDelete('cascade')->onUpdate('cascade');
         });
 
-        /* App\Department::create([
-            'program_code' => 'SE'
-            'program_acronym' => 'Software Engineering'
-            'schools_id' => 1
+         Program::create([
+            'program_code' => 'BSc',
+            'program_name' => 'Software Engineering',
+            'program_acronym' => 'SE',
+            'program_years' => 4,
+            'departments_id' => 1,
         ]);
 
-        App\Department::create([
-            'program_code' => 'TE'
-            'program_acronym' => 'Telecommunication Engineering'
-            'schools_id' => 2
+        Program::create([
+            'program_code' => 'BSc',
+            'program_name' => 'Telecommunication Engineering',
+            'program_acronym' => 'TE',
+            'program_years' => 4,
+            'departments_id' => 2,
         ]);
-*/
+
 
     }
 

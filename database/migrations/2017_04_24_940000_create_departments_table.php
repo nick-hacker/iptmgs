@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
+use App\Department;
 
 class CreateDepartmentsTable extends Migration
 {
@@ -28,18 +29,18 @@ class CreateDepartmentsTable extends Migration
                     ->onUpdate('cascade'); 
         });
 
-       /* App\Department::create([
-            'department_name' => 'Informatics'
-            'department_acronym' => 'Informatics'
-            'schools_id' => 1
+        Department::create([
+            'department_name' => 'Informatics',
+            'department_acronym' => 'Informatics',
+            'schools_id' => 1,
         ]);
 
-        App\Department::create([
-            'department_name' => 'Telecommunications'
-            'department_acronym' => 'Informatics'
-            'schools_id' => 2
+        Department::create([
+            'department_name' => 'Telecommunications',
+            'department_acronym' => 'Informatics',
+            'schools_id' => 2,
         ]);
-*/
+
     }
 
     /**

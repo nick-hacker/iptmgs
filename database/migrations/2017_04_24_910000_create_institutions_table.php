@@ -3,8 +3,9 @@
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
+use App\Institution;
 
-class CreateInstitutionTable extends Migration
+class CreateInstitutionsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -21,9 +22,9 @@ class CreateInstitutionTable extends Migration
         });
 
         //Adding dummy data
-        App\Institution::create([
-            'institution_name' => 'University Of Dodoma',
-            'institution_acronym' => 'UDOM'
+        Institution::create([
+            'institution_name' => 'University of Dodoma',
+            'institution_acronym' => 'UDOM',
             ]);
 
     }

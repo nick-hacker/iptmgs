@@ -15,7 +15,7 @@ class CreateCartegoriesTable extends Migration
     {
         Schema::create('cartegories', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('name', 120);
+            $table->string('name');
             $table->text('description')->nullable();
             $table->timestamps();
         });
