@@ -30,14 +30,14 @@ class CreateDepartmentsTable extends Migration
         });
 
         Department::create([
-            'department_name' => 'Informatics',
-            'department_acronym' => 'Informatics',
+            'department_name' => 'Computer Science',
+            'department_acronym' => 'CS',
             'schools_id' => 1,
         ]);
 
         Department::create([
-            'department_name' => 'Telecommunications',
-            'department_acronym' => 'Informatics',
+            'department_name' => 'Telecommunications Networks',
+            'department_acronym' => 'TN',
             'schools_id' => 2,
         ]);
 
