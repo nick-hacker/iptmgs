@@ -13,7 +13,7 @@
                     <h1 class="page-header">Create Post</h1>
                 </div>
 
-                        <form class="form-horizontal" method="POST" action="/colleges" >
+                        <form class="form-horizontal" method="POST" action="/posts" >
                     {{ csrf_field() }}
                       @include('posts._form', ['btnText' => 'Add'])
                 </form>       

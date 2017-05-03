@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Post;
+use App\Cartegory;
 use App\Organization;
 use Illuminate\Http\Request;
 
@@ -27,7 +28,8 @@ class PostsController extends Controller
     public function create()
     {
         $organizations = Organization::all();
-        return view('posts.create', compact('organizations'));
+        $categories = Cartegory::all();
+        return view('posts.create', compact('organizations', 'categories'));
     }
 
     /**
@@ -38,7 +40,16 @@ class PostsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $post = new Post();
+        $post->name_of_post = $request->input('name_of_post');
+        $post->description = $request->input('description');
+        $post->post_number = $request->input('number_post');
+        $post->cartegory_id = $request->input('cartegory_id');
+        $post->org_id = $request->input('org_id');
+
+        $post->save();
+
+        return redirect('posts');
     }
 
     /**

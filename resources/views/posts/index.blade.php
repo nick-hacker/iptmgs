@@ -21,7 +21,10 @@
                                         <tr>
                                             <th>SN</th>
                                             <th>Name</th>
-                                            <th>Acronym</th>
+                                            <th>Description</th>
+                                            <th>Organization</th>
+                                            <th>Post Number</th>
+                                            <th>Post Criteria</th>
                                             <th>Added</th>
                                             <th colspan="2">Actions</th>
                                         </tr>
@@ -32,8 +35,9 @@
                                             <tr>
                                                 <td>{{ $i++ }}</td>
                                                 <td>{{ $post->name_of_post }}</td>
-                                                <td>{{ $post->description }}</td>
-                                                <td>{{ $post->description }}</td>
+                                                <td>{{ str_limit($post->description, 50) }}</td>
+                                                <td>{{ $post->organization }}</td>
+                                                <td>{{ $post->post_number }}</td>
                                                 <td>{{ $post->post_criteria }}</td>
                                                 <td><a href="/colleges/{{ $post->id }}/edit">Edit</a></td>
                                                 <td>
