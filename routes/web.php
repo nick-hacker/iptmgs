@@ -23,7 +23,7 @@ Route::resource('courses','CoursesController');
 Route::resource('organizations','OrganizationsController');
 Route::resource('staffs','StaffsController');
 Route::resource('students','StudentsController');
-// Route::resource('task','TaskController');
+Route::resource('posts','PostsController');
 
 
 
