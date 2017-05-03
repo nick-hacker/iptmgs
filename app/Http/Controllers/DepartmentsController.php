@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Department;
 use Illuminate\Http\Request;
 
-class DepartmentController extends Controller
+class DepartmentsController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,7 +14,8 @@ class DepartmentController extends Controller
      */
     public function index()
     {
-        //
+        $colleges = Department::latest()->get();
+        return view('departments.index', compact('departments'));
     }
 
     /**
@@ -24,7 +25,7 @@ class DepartmentController extends Controller
      */
     public function create()
     {
-        //
+        return view('departments.create');
     }
 
     /**
@@ -33,9 +34,21 @@ class DepartmentController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Department $department)
     {
-        //
+        //Validating the request
+        $this->validate(request(), [
+                'department_name' => 'required|unique:colleges|min:3|max:100',
+                'department_acronym'  =>  'required|max:20'
+            ]);
+
+        Department::create([
+            'department_name' => request('department_name'),
+            'department_acronym' => request('department_acronym'),
+            'schools_id' => 1,
+            ]);
+         
+        return redirect('/departments');
     }
 
     /**

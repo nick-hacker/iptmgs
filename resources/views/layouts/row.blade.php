@@ -53,8 +53,7 @@
         
     </div>
     <!-- /.col-lg-8 -->
-    
+
     @include('layouts.notificationpan')
     <!-- /.col-lg-4 -->
 </div>
-            

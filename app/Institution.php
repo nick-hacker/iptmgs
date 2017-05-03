@@ -11,4 +11,10 @@ class Institution extends Model
     {
     	return $this->hasMany(College::class);
     }
+
+    /*public function addCollege($body)
+    {
+        
+          return $this->colleges()->create(compact(['college_name','college_acronym'])); 
+    }*/
 }

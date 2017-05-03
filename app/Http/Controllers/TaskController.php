@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Program;
+use App\Task;
 use Illuminate\Http\Request;
 
-class ProgramController extends Controller
+class TaskController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -41,21 +41,23 @@ class ProgramController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Program  $program
+     * @param  \App\Task  $task
      * @return \Illuminate\Http\Response
      */
-    public function show(Program $program)
+    public function show(Task $task)
     {
-        //
+        $task = Task::find($task_id);
+
+        return Response::json($task);
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Program  $program
+     * @param  \App\Task  $task
      * @return \Illuminate\Http\Response
      */
-    public function edit(Program $program)
+    public function edit(Task $task)
     {
         //
     }
@@ -64,10 +66,10 @@ class ProgramController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Program  $program
+     * @param  \App\Task  $task
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Program $program)
+    public function update(Request $request, Task $task)
     {
         //
     }
@@ -75,11 +77,47 @@ class ProgramController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Program  $program
+     * @param  \App\Task  $task
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Program $program)
+    public function destroy(Task $task)
     {
         //
     }
 }
+/*
+Route::get('/', function () {
+    $tasks = Task::all();
+
+    return View::make('welcome')->with('tasks',$tasks);
+});
+
+Route::get('/tasks/{task_id?}',function($task_id){
+    $task = Task::find($task_id);
+
+    return Response::json($task);
+});
+
+Route::post('/tasks',function(Request $request){
+    $task = Task::create($request->all());
+
+    return Response::json($task);
+});
+
+Route::put('/tasks/{task_id?}',function(Request $request,$task_id){
+    $task = Task::find($task_id);
+
+    $task->task = $request->task;
+    $task->description = $request->description;
+
+    $task->save();
+
+    return Response::json($task);
+});
+
+Route::delete('/tasks/{task_id?}',function($task_id){
+    $task = Task::destroy($task_id);
+
+    return Response::json($task);
+});
+*/

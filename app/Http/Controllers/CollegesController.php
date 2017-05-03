@@ -1,11 +1,11 @@
 <?php
 
 namespace App\Http\Controllers;
-
-use App\College;
 use Illuminate\Http\Request;
+use App\College;
 
-class CollegeController extends Controller
+
+class CollegesController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,7 +14,8 @@ class CollegeController extends Controller
      */
     public function index()
     {
-        //
+        $colleges = College::latest()->get();
+        return view('colleges.index', compact('colleges'));
     }
 
     /**
@@ -24,7 +25,7 @@ class CollegeController extends Controller
      */
     public function create()
     {
-        //
+        return view('colleges.create');
     }
 
     /**
@@ -33,9 +34,21 @@ class CollegeController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(College $college)
     {
-        //
+        //Validating the request
+        $this->validate(request(), [
+                'college_name' => 'required|unique:colleges|min:3|max:100',
+                'college_acronym'  =>  'required|max:20'
+            ]);
+
+        College::create([
+            'college_name' => request('college_name'),
+            'college_acronym' => request('college_acronym'),
+            'institutions_id' => 1,
+            ]);
+         
+        return redirect('/colleges');
     }
 
     /**
@@ -57,7 +70,7 @@ class CollegeController extends Controller
      */
     public function edit(College $college)
     {
-        //
+        return view('colleges.edit', compact('college'));
     }
 
     /**
@@ -69,7 +82,12 @@ class CollegeController extends Controller
      */
     public function update(Request $request, College $college)
     {
-        //
+        $college->college_name = $request->input('college_name');
+        $college->college_acronym = $request->input('college_acronym');
+
+        $college->save();
+
+        return redirect('colleges');
     }
 
     /**

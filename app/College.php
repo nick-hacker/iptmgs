@@ -17,4 +17,6 @@ class College extends Model
     {
     	return $this->belongsTo(Institution::class);
     }
+
+     
 }

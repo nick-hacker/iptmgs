@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Cartegory;
 use Illuminate\Http\Request;
 
-class CartegoryController extends Controller
+class CartegoriesController extends Controller
 {
     /**
      * Display a listing of the resource.
