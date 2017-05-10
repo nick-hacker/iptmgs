@@ -14,7 +14,8 @@ class OrganizationsController extends Controller
      */
     public function index()
     {
-        //
+        $organizations = Organization::all();
+        return view('organizations.index', compact('organizations'));
     }
 
     /**
@@ -24,7 +25,7 @@ class OrganizationsController extends Controller
      */
     public function create()
     {
-        //
+        return view('organizations.create');
     }
 
     /**
@@ -35,7 +36,18 @@ class OrganizationsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        
+        //Validating the request
+        $this->validate(request(), [
+                'name_of_org' => 'required'
+            ]);
+
+        $org = new Organization();
+        $org->name_of_org = $request->input('name_of_org');
+        $org->description = $request->input('description');
+        $org->save();
+         
+        return redirect('/organizations');
     }
 
     /**

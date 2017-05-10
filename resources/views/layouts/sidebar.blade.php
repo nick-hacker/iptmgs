@@ -13,7 +13,7 @@
                     <!-- /input-group -->
                 </li>
                 <li>
-                    <a href="/"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
+                    <a href="/"><i class="fa fa-dashboard fa-fw"></i>Home</a>
                 </li>
                 {{-- <li>
                     <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> CIVE<span class="fa arrow"></span></a>
@@ -34,6 +34,8 @@
                     <a href="/schools"><i class="fa fa-edit fa-fw"></i> Schools</a>
                 </li>
                 <li>
+                    <a href="/organizations"><i class="fa fa-edit fa-fw"></i> Organizations</a>
+                </li><li>
                     <a href="/posts"><i class="fa fa-edit fa-fw"></i> IPT Posts</a>
                 </li>
                 {{-- <li>
