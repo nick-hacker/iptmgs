@@ -10,21 +10,19 @@
             <div class="row">
 
                 <div class="col-lg-12">
-                    <h1 class="page-header">Edit {{ $college->college_name }}</h1>
+                    <h1 class="page-header">Edit Post {{ $post->name_of_post }}</h1>
                 </div>
 
-                    <form class="form-horizontal" method="POST" action="/colleges/{{ $college->id }}" >
+                    <form class="form-horizontal" method="POST" action="/posts/{{ $post->id }}" >
                     {{ csrf_field() }}
 
                     {{ method_field('patch') }}
 
-                     @include('colleges._form', ['btnText' => 'Update'])
-                </form>       
-                <!-- /.col-lg-12 -->
+                     @include('posts._form', ['btnText' => 'Update'])
+                    </form>       
+                    <!-- /.col-lg-12 -->
 
             </div>
-
-            
             
         </div>
         

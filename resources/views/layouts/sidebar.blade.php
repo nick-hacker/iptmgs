@@ -15,18 +15,17 @@
                 <li>
                     <a href="/"><i class="fa fa-dashboard fa-fw"></i>Home</a>
                 </li>
-                {{-- <li>
-                    <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> CIVE<span class="fa arrow"></span></a>
-                    <ul class="nav nav-second-level">
-                        <li>
-                            <a href="flot.html">Info</a>
-                        </li>
-                        <li>
-                            <a href="morris.html">Virtual</a>
-                        </li>
-                    </ul> --}}
-                    {{-- /.nav-second-level --}}
-               {{--  </li> --}}
+                <!-- <li>
+                     <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> CIVE<span class="fa arrow"></span></a>
+                     <ul class="nav nav-second-level">
+                         <li>
+                             <a href="#">Info</a>
+                         </li>
+                         <li>
+                             <a href="#">Virtual</a>
+                         </li>
+                     </ul> 
+                  </li> --> 
                 <li>
                     <a href="/colleges"><i class="fa fa-table fa-fw"></i> Colleges</a>
                 </li>
@@ -36,7 +35,22 @@
                 <li>
                     <a href="/organizations"><i class="fa fa-edit fa-fw"></i> Organizations</a>
                 </li><li>
-                    <a href="/posts"><i class="fa fa-edit fa-fw"></i> IPT Posts</a>
+                    <a href="/posts"><i class="fa fa-edit fa-fw"></i>Posts<span class="fa arrow"></span></a>
+                    <ul class="nav nav-second-level">
+                        <li>
+                            <a href="/posts">All Posts</a>
+                        </li>
+                        <li>
+                            <a href="/posts/create">Add New Post</a>
+                        </li>
+                        <li>
+                            <a href="#">Upload Posts</a>
+                        </li>
+                        <li>
+                            <a href="#">Aprove Posts</a>
+                        </li>
+                    </ul> 
+                    {{-- /.nav-second-level --}}
                 </li>
                 {{-- <li>
                     <a href="#"><i class="fa fa-wrench fa-fw"></i> UI Elements<span class="fa arrow"></span></a>

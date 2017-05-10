@@ -9,15 +9,27 @@
 
             <div class="row">
 
-                <div class="col-lg-12">
-                    <h1 class="page-header">Create Post</h1>
+                <hr>
+
+                <div class="">
+                    <span class="pull-left"><strong>Loged in as: </strong>T/UDOM/2013/04620</span>
+                    <!-- <span class="pull-center"><strong>Loged in as:</strong>T/UDOM/2013/04620</span> -->
+                    <span class="pull-right">Wednesday 10th of May 2017</span>
+                    <!-- <h1 class="page-header">Create Post</h1> -->
                 </div>
 
-                        <form class="form-horizontal" method="POST" action="/posts" >
-                    {{ csrf_field() }}
-                      @include('posts._form', ['btnText' => 'Add'])
-                </form>       
-                <!-- /.col-lg-12 -->
+                <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <!-- <span class="align-center">Create new post</span> -->
+                        </div>
+                        <!-- /.panel-heading -->
+                        <div class="panel-body">
+                            <form class="form-horizontal" method="POST" action="/posts" >
+                                {{ csrf_field() }}
+                                  @include('posts._form', ['btnText' => 'Create'])
+                            </form>       
+                        </div>
+                </div>
 
             </div>
 

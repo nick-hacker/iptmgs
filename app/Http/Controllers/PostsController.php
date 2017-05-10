@@ -16,7 +16,8 @@ class PostsController extends Controller
      */
     public function index()
     {
-        $posts = Post::all();
+        // $posts = Post::all();
+        $posts = Post::latest()->get();
         return view('posts.index', compact('posts'));
     }
 
@@ -38,9 +39,14 @@ class PostsController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Post $post)
     {
-        $post = new Post();
+        //Validating the request
+        $this->validate(request(), [
+                'name_of_post' => 'required|unique:post|min:3',
+                'description'  =>  'required'
+            ]);
+        /*$post = new Post();*/
         $post->name_of_post = $request->input('name_of_post');
         $post->description = $request->input('description');
         $post->post_number = $request->input('number_post');
@@ -58,9 +64,10 @@ class PostsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Post $post)
     {
-        //
+        // $post = Post::find($id);
+        return view('posts.show', compact('post'));
     }
 
     /**
@@ -69,9 +76,11 @@ class PostsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Post $post)
     {
-        //
+        $categories = Cartegory::all();
+        $organizations = Organization::all();
+        return view('posts.edit', compact('organizations','categories','post'));     
     }
 
     /**
@@ -81,9 +90,15 @@ class PostsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
-    {
-        //
+    public function update(Request $request, Post $post)
+    {        
+        $post->name_of_post = $request->input('name_of_post');
+        $post->description = $request->input('description');
+        $post->number_of_posts = $request->input('number_of_posts');
+
+        $post->save();
+
+        return redirect('posts');
     }
 
     /**

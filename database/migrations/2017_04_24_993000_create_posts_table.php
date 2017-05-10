@@ -18,6 +18,7 @@ class CreatePostsTable extends Migration
             $table->string('name_of_post');
             $table->text('description');
             $table->string('post_criteria')->nullable();
+            $table->string('number_of_posts')->nullable();
             $table->timestamps();
         });
 

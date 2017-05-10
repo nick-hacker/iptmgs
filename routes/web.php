@@ -24,6 +24,7 @@ Route::resource('categories','CartegoriesController');
 Route::resource('organizations','OrganizationsController');
 Route::resource('staffs','StaffsController');
 Route::resource('students','StudentsController');
+Route::post('/posts/{post}/comments','CommentsController@store');
 Route::resource('posts','PostsController');
 
 
