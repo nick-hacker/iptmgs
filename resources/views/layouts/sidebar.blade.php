@@ -15,17 +15,6 @@
                 <li>
                     <a href="/"><i class="fa fa-dashboard fa-fw"></i>Home</a>
                 </li>
-                <!-- <li>
-                     <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> CIVE<span class="fa arrow"></span></a>
-                     <ul class="nav nav-second-level">
-                         <li>
-                             <a href="#">Info</a>
-                         </li>
-                         <li>
-                             <a href="#">Virtual</a>
-                         </li>
-                     </ul> 
-                  </li> --> 
                 <li>
                     <a href="/colleges"><i class="fa fa-table fa-fw"></i> Colleges</a>
                 </li>

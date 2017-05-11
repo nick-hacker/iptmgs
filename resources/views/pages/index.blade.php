@@ -13,6 +13,7 @@
                     <h1 class="page-header">Dashboard</h1>
                 </div>
                 <!-- /.col-lg-12 -->
+                @include('posts.archivesposts')
 
             </div>
 

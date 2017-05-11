@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Post;
 use App\Cartegory;
 use App\Organization;
+
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 
 class PostsController extends Controller
@@ -16,9 +18,13 @@ class PostsController extends Controller
      */
     public function index()
     {
-        // $posts = Post::all();
-        $posts = Post::latest()->get();
-        return view('posts.index', compact('posts'));
+        $posts = Post::latest()
+            ->filter(request(['month', 'year']))
+            ->get();
+        
+        $archives = Post::archives();
+
+        return view('posts.index', compact('posts', 'archives'));
     }
 
     /**
@@ -66,7 +72,8 @@ class PostsController extends Controller
      */
     public function show(Post $post)
     {
-        // $post = Post::find($id);
+         $comment = \App\Comment::find($post->id);
+         return dd($comment);
         return view('posts.show', compact('post'));
     }
 

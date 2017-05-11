@@ -14,6 +14,9 @@ class AppServiceProvider extends ServiceProvider
     public function boot()
     {
         //
+        view()->composer('posts.archivesposts', function($view){
+            $view->with('archives', \App\Post::archives());
+        });
     }
 
     /**
